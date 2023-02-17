@@ -192,7 +192,7 @@ multiplication.addEventListener("click", () => {
         num2 = parseInt(calcDisplay.textContent)
         operate(num1, operationFunction, num2)
         calcDisplay.textContent = result;
-        num1 = result;
+        num1 = 0;
         num2 = 0;
     }
 
