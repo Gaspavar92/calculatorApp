@@ -51,7 +51,7 @@ body {
     margin-top: 25px;
 }
 
-.number {
+.number, .dot {
     background-color: orange;
     border-radius: 50px;
     padding: 25px;
@@ -61,6 +61,7 @@ body {
     cursor: pointer;
     font-size: 20px;
     font-weight: 900;
+    border: 1px solid black;
 }
 
 .clear, .delete {
@@ -71,6 +72,7 @@ body {
 .operation {
     background-color: rgb(159, 81, 210);
     color: white;
+    border-radius: 10px;
 }
 
 .clear {
