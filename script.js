@@ -162,7 +162,7 @@ division.addEventListener("click", () => {
     if (num1 && num2) {
         operate(num1, operationFunction, num2)
         if (operationFunction == divide) {
-            calcDisplay.textContent = result.toFixed(2);
+            calcDisplay.textContent = result.toFixed(1);
         } else {
             calcDisplay.textContent = result;
         }
@@ -184,7 +184,7 @@ multiplication.addEventListener("click", () => {
     if (num1 && num2) {
         operate(num1, operationFunction, num2)
         if (operationFunction == divide) {
-            calcDisplay.textContent = result.toFixed(2);
+            calcDisplay.textContent = result.toFixed(1);
         } else {
             calcDisplay.textContent = result;
         }
@@ -199,9 +199,18 @@ multiplication.addEventListener("click", () => {
 
     const equalFunction = () => {
         num2 = parseFloat(calcDisplay.textContent)
-        operate(num1, operationFunction, num2)
+        if (operationFunction == divide && num2 == 0) {
+            alert("You can't divide by zero!")
+            calcDisplay.textContent = "";
+            numArray = [];
+            num1 = 0;
+            num2 = 0;
+            return
+        } else {
+           operate(num1, operationFunction, num2) 
+        }
         if (operationFunction == divide) {
-            calcDisplay.textContent = result.toFixed(2);
+            calcDisplay.textContent = result.toFixed(1);
         } else {
             calcDisplay.textContent = result;
         }
@@ -223,8 +232,7 @@ clearButton.addEventListener("click", () => {
     calcDisplay.textContent = "";
 })
 
-
-
-
-
-
+deleteButton.addEventListener("click", () => {
+    numArray.splice(-1);
+    calcDisplay.textContent = numArray.join("");
+})
