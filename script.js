@@ -62,64 +62,65 @@ const calcDisplay = document.querySelector(".display");
 
 number1.addEventListener("click", () => {
     numArray.push(number1.textContent)
-    calcDisplay.textContent = parseInt(numArray.join(""));
+    calcDisplay.textContent = numArray.join("");
 })
 
 number2.addEventListener("click", () => {
     numArray.push(number2.textContent)
-    calcDisplay.textContent = parseInt(numArray.join(""));
+    calcDisplay.textContent = numArray.join("");
 })
 
 number3.addEventListener("click", () => {
     numArray.push(number3.textContent)
-    calcDisplay.textContent = parseInt(numArray.join(""));
+    calcDisplay.textContent = numArray.join("");
 })
 
 number4.addEventListener("click", () => {
     numArray.push(number4.textContent)
-    calcDisplay.textContent = parseInt(numArray.join(""));
+    calcDisplay.textContent = numArray.join("");
 })
 
 number5.addEventListener("click", () => {
     numArray.push(number5.textContent)
-    calcDisplay.textContent = parseInt(numArray.join(""));
+    calcDisplay.textContent = numArray.join("");
 })
 
 number6.addEventListener("click", () => {
     numArray.push(number6.textContent)
-    calcDisplay.textContent = parseInt(numArray.join(""));
+    calcDisplay.textContent = numArray.join("");
 })
 
 number7.addEventListener("click", () => {
     numArray.push(number7.textContent)
-    calcDisplay.textContent = parseInt(numArray.join(""));
+    calcDisplay.textContent = numArray.join("");
 })
 
 number8.addEventListener("click", () => {
     numArray.push(number8.textContent)
-    calcDisplay.textContent = parseInt(numArray.join(""));
+    calcDisplay.textContent = numArray.join("");
 })
 
 number9.addEventListener("click", () => {
     numArray.push(number9.textContent)
-    calcDisplay.textContent = parseInt(numArray.join(""));
+    calcDisplay.textContent = numArray.join("");
 })
 
 number0.addEventListener("click", () => {
     numArray.push(number0.textContent)
-    calcDisplay.textContent = parseInt(numArray.join(""));
+    calcDisplay.textContent = numArray.join("");
 })
 
 dot.addEventListener("click", () => {
-    // Decimal point function
+    numArray.push(dot.textContent)
+    calcDisplay.textContent = numArray.join("")
 })
 
 addition.addEventListener("click", () => {
     if (num1 == 0) {
-        num1 = parseInt(calcDisplay.textContent);
+        num1 = parseFloat(calcDisplay.textContent);
         calcDisplay.textContent = "";
     } else {
-        num2 = parseInt(calcDisplay.textContent);
+        num2 = parseFloat(calcDisplay.textContent);
         calcDisplay.textContent = "";
     }
     if (num1 && num2) {
@@ -134,10 +135,10 @@ addition.addEventListener("click", () => {
 
 subtraction.addEventListener("click", () => {
     if (num1 == 0) {
-        num1 = parseInt(calcDisplay.textContent);
+        num1 = parseFloat(calcDisplay.textContent);
         calcDisplay.textContent = "";
     } else {
-        num2 = parseInt(calcDisplay.textContent);
+        num2 = parseFloat(calcDisplay.textContent);
         calcDisplay.textContent = "";
     }
     if (num1 && num2) {
@@ -152,15 +153,19 @@ subtraction.addEventListener("click", () => {
 
 division.addEventListener("click", () => {
     if (num1 == 0) {
-        num1 = parseInt(calcDisplay.textContent);
+        num1 = parseFloat(calcDisplay.textContent);
         calcDisplay.textContent = "";
     } else {
-        num2 = parseInt(calcDisplay.textContent);
+        num2 = parseFloat(calcDisplay.textContent);
         calcDisplay.textContent = "";
     }
     if (num1 && num2) {
         operate(num1, operationFunction, num2)
-        calcDisplay.textContent = result;
+        if (operationFunction == divide) {
+            calcDisplay.textContent = result.toFixed(2);
+        } else {
+            calcDisplay.textContent = result;
+        }
         num1 = result;
         num2 = 0;
     }
@@ -170,15 +175,19 @@ division.addEventListener("click", () => {
 
 multiplication.addEventListener("click", () => {
     if (num1 == 0) {
-        num1 = parseInt(calcDisplay.textContent);
+        num1 = parseFloat(calcDisplay.textContent);
         calcDisplay.textContent = "";
     } else {
-        num2 = parseInt(calcDisplay.textContent);
+        num2 = parseFloat(calcDisplay.textContent);
         calcDisplay.textContent = "";
     }
     if (num1 && num2) {
         operate(num1, operationFunction, num2)
-        calcDisplay.textContent = result;
+        if (operationFunction == divide) {
+            calcDisplay.textContent = result.toFixed(2);
+        } else {
+            calcDisplay.textContent = result;
+        }
         num1 = result;
         num2 = 0;
     }
@@ -189,9 +198,13 @@ multiplication.addEventListener("click", () => {
     // Equals function
 
     const equalFunction = () => {
-        num2 = parseInt(calcDisplay.textContent)
+        num2 = parseFloat(calcDisplay.textContent)
         operate(num1, operationFunction, num2)
-        calcDisplay.textContent = result;
+        if (operationFunction == divide) {
+            calcDisplay.textContent = result.toFixed(2);
+        } else {
+            calcDisplay.textContent = result;
+        }
         num1 = 0;
         num2 = 0;
     }
