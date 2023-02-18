@@ -125,7 +125,11 @@ addition.addEventListener("click", () => {
     }
     if (num1 && num2) {
         operate(num1, operationFunction, num2)
-        calcDisplay.textContent = result;
+        if (result.toString().includes(".") && result.toString().length > 9) {
+            calcDisplay.textContent = parseFloat(result.toFixed(9));
+        } else {
+            calcDisplay.textContent = result;
+        }
         num1 = result;
         num2 = 0;
     }
@@ -143,7 +147,11 @@ subtraction.addEventListener("click", () => {
     }
     if (num1 && num2) {
         operate(num1, operationFunction, num2)
-        calcDisplay.textContent = result;
+        if (result.toString().includes(".") && result.toString().length > 9) {
+            calcDisplay.textContent = parseFloat(result.toFixed(9));
+        } else {
+            calcDisplay.textContent = result;
+        }
         num1 = result;
         num2 = 0;
     }
@@ -161,8 +169,8 @@ division.addEventListener("click", () => {
     }
     if (num1 && num2) {
         operate(num1, operationFunction, num2)
-        if (operationFunction == divide) {
-            calcDisplay.textContent = result.toFixed(1);
+        if (result.toString().includes(".") && result.toString().length > 9) {
+            calcDisplay.textContent = parseFloat(result.toFixed(9));
         } else {
             calcDisplay.textContent = result;
         }
@@ -183,8 +191,8 @@ multiplication.addEventListener("click", () => {
     }
     if (num1 && num2) {
         operate(num1, operationFunction, num2)
-        if (operationFunction == divide) {
-            calcDisplay.textContent = result.toFixed(1);
+        if (result.toString().includes(".") && result.toString().length > 9) {
+            calcDisplay.textContent = parseFloat(result.toFixed(9));
         } else {
             calcDisplay.textContent = result;
         }
@@ -209,8 +217,8 @@ multiplication.addEventListener("click", () => {
         } else {
            operate(num1, operationFunction, num2) 
         }
-        if (operationFunction == divide) {
-            calcDisplay.textContent = result.toFixed(1);
+        if (result.toString().includes(".") && result.toString().length > 9) {
+            calcDisplay.textContent = parseFloat(result.toFixed(9));
         } else {
             calcDisplay.textContent = result;
         }
