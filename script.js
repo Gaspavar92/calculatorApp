@@ -58,62 +58,16 @@ const dot = document.querySelector(".dot")
 // Targeting the div that contains the display's numbers
 
 const calcDisplay = document.querySelector(".display");
+const buttons = [number0, number1, number2, number3, number4, number5, number6, number7, number8, number9, dot];
 
-
-number1.addEventListener("click", () => {
-    numArray.push(number1.textContent)
+buttons.forEach(element => {
+    element.addEventListener("click", () => {
+    numArray.push(element.textContent)
     calcDisplay.textContent = numArray.join("");
+    })
 })
 
-number2.addEventListener("click", () => {
-    numArray.push(number2.textContent)
-    calcDisplay.textContent = numArray.join("");
-})
-
-number3.addEventListener("click", () => {
-    numArray.push(number3.textContent)
-    calcDisplay.textContent = numArray.join("");
-})
-
-number4.addEventListener("click", () => {
-    numArray.push(number4.textContent)
-    calcDisplay.textContent = numArray.join("");
-})
-
-number5.addEventListener("click", () => {
-    numArray.push(number5.textContent)
-    calcDisplay.textContent = numArray.join("");
-})
-
-number6.addEventListener("click", () => {
-    numArray.push(number6.textContent)
-    calcDisplay.textContent = numArray.join("");
-})
-
-number7.addEventListener("click", () => {
-    numArray.push(number7.textContent)
-    calcDisplay.textContent = numArray.join("");
-})
-
-number8.addEventListener("click", () => {
-    numArray.push(number8.textContent)
-    calcDisplay.textContent = numArray.join("");
-})
-
-number9.addEventListener("click", () => {
-    numArray.push(number9.textContent)
-    calcDisplay.textContent = numArray.join("");
-})
-
-number0.addEventListener("click", () => {
-    numArray.push(number0.textContent)
-    calcDisplay.textContent = numArray.join("");
-})
-
-dot.addEventListener("click", () => {
-    numArray.push(dot.textContent)
-    calcDisplay.textContent = numArray.join("")
-})
+// Defining the event listeners for operation buttons
 
 addition.addEventListener("click", () => {
     if (num1 == 0) {
